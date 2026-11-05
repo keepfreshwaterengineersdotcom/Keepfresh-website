@@ -911,14 +911,16 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 #keepfresh-slider .solution-slide {
-  min-height: 620px;
   width: 100%;
   display: none;
   position: relative;
   align-items: center;
+  aspect-ratio: 16 / 9;
   background-image: url('hero-water-solutions.png');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: #071b36;
 }
 
 #keepfresh-slider .solution-slide.active {
