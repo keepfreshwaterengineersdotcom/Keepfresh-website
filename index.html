@@ -584,6 +584,78 @@ nav{display:none}
     }
 }
 
+/* ABOUT US RIGHT SIDE CAROUSEL */
+.about-box {
+    flex: 1;
+    padding: 0 !important;
+    background: transparent !important;
+    color: #ffffff;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 2.08 / 1;
+    min-width: 0;
+}
+
+.about-carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.about-carousel-slide.active {
+    display: block;
+}
+
+.about-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.about-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #064b91;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.about-carousel-prev {
+    left: 10px;
+}
+
+.about-carousel-next {
+    right: 10px;
+}
+
+.about-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.about-carousel-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+}
+
+.about-carousel-dot.active {
+    background: #087de0;
+}
+
 </style>
 </head>
 <body>
@@ -996,17 +1068,36 @@ Safe & Healthy Water
   </script>
 </section>
 
-<section class="section about" id="about">
+<section class="section about" id="about" style="background-image: url('about-us-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <div class="about-text">
 <h2>About KEEPFRESH Water Engineers</h2>
 <p>We offer water purification and treatment solutions for residential and commercial requirements. Our product range includes alkaline water ionizers, RO systems, filtration plants and water treatment accessories.</p>
 <p style="margin-top:15px">Our focus is quality products, dependable service and customer satisfaction.</p>
 </div>
-<div class="about-box">
-<strong>KEEPFRESH</strong>
-<p>Pure Water. Better Living.</p>
-<p style="margin-top:12px">Water Engineering Solutions</p>
+
+<div class="about-box" id="aboutCarousel">
+
+    <div class="about-carousel-slide active">
+        <img src="about-carousel-ionizers.png" alt="KEEPFRESH Water Ionizers">
+    </div>
+
+    <div class="about-carousel-slide">
+        <img src="about-carousel-products.png" alt="KEEPFRESH Complete Water Solutions">
+    </div>
+
+    <button class="about-carousel-arrow about-carousel-prev"
+        onclick="changeAboutSlide(-1)">&#8249;</button>
+
+    <button class="about-carousel-arrow about-carousel-next"
+        onclick="changeAboutSlide(1)">&#8250;</button>
+
+    <div class="about-carousel-dots">
+        <span class="about-carousel-dot active" onclick="showAboutSlide(0)"></span>
+        <span class="about-carousel-dot" onclick="showAboutSlide(1)"></span>
+    </div>
+
 </div>
+
 </section>
 
 <section class="section contact" id="contact">
@@ -1050,6 +1141,38 @@ document.addEventListener("DOMContentLoaded", function () {
     elements.forEach(element => observer.observe(element));
 
 });
+
+let aboutCurrentSlide = 0;
+
+function showAboutSlide(index) {
+    const slides = document.querySelectorAll(
+        "#aboutCarousel .about-carousel-slide"
+    );
+    const dots = document.querySelectorAll(
+       ".about-carousel-dot"
+    );
+
+    if (!slides.length) return;
+
+    aboutCurrentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === aboutCurrentSlide);
+    });
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === aboutCurrentSlide);
+    });
+}
+
+function changeAboutSlide(direction) {
+    showAboutSlide(aboutCurrentSlide + direction);
+}
+
+setInterval(function () {
+    showAboutSlide(aboutCurrentSlide + 1);
+}, 5000);
+
 </script>
 
 <style>
