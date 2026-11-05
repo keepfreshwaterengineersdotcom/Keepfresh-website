@@ -995,6 +995,37 @@ document.addEventListener("DOMContentLoaded", function () {
     background: rgba(0,0,0,.35);
   }
 }
+
+/* KEEP FRESH - SAME DESKTOP LAYOUT ON MOBILE */
+@media (max-width: 750px) {
+
+  /* 5 categories in every row */
+  #categories .categories {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  /* Keep category cards aligned */
+  #categories .category {
+    min-width: 0 !important;
+  }
+
+  #categories .category img {
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Complete banner without cropping */
+  #keepfresh-slider .solution-slide {
+    width: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+}
+
 </style>
 
 <script>
