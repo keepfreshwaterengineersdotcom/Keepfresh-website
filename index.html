@@ -892,5 +892,179 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
+<style>
+/* KEEP FRESH HERO SLIDER */
+#keepfresh-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#keepfresh-slider > .hero {
+  display: none;
+  width: 100%;
+}
+
+#keepfresh-slider > .hero.active {
+  display: flex;
+}
+
+#keepfresh-slider .solution-slide {
+  min-height: 620px;
+  width: 100%;
+  display: none;
+  position: relative;
+  align-items: center;
+  background-image: url('hero-water-solutions.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#keepfresh-slider .solution-slide.active {
+  display: flex;
+}
+
+.solution-overlay {
+  padding: 60px 7%;
+  max-width: 620px;
+  color: white;
+  text-shadow: 0 2px 8px #000;
+}
+
+.solution-overlay h2 {
+  font-size: clamp(32px, 5vw, 58px);
+  margin-bottom: 18px;
+}
+
+.solution-overlay p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.solution-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.solution-actions a {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: #0878c9;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.solution-actions a:last-child {
+  background: #fff;
+  color: #07558c;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: 0;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,.55);
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#slider-prev { left: 14px; }
+#slider-next { right: 14px; }
+
+@media(max-width: 700px) {
+  #keepfresh-slider .solution-slide {
+    min-height: 520px;
+    background-position: 60% center;
+  }
+  .solution-overlay {
+    padding: 35px 22px;
+    background: rgba(0,0,0,.35);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const originalHero = document.getElementById("home");
+  if (!originalHero || document.getElementById("keepfresh-slider")) return;
+
+  const slider = document.createElement("div");
+  slider.id = "keepfresh-slider";
+
+  originalHero.parentNode.insertBefore(slider, originalHero);
+  slider.appendChild(originalHero);
+
+  originalHero.classList.add("active");
+
+  const secondSlide = document.createElement("section");
+  secondSlide.className = "solution-slide";
+  secondSlide.innerHTML = `
+    <div class="solution-overlay">
+      <h2>Complete Water Solutions</h2>
+      <p>For Homes, Businesses &amp; Industries</p>
+      <div class="solution-actions">
+        <a href="#products">Explore Our Products</a>
+        <a href="https://wa.me/918368940556">Enquire Now</a>
+      </div>
+    </div>
+  `;
+  slider.appendChild(secondSlide);
+
+  const prev = document.createElement("button");
+  prev.id = "slider-prev";
+  prev.className = "slider-arrow";
+  prev.innerHTML = "&#8249;";
+  prev.setAttribute("aria-label", "Previous slide");
+
+  const next = document.createElement("button");
+  next.id = "slider-next";
+  next.className = "slider-arrow";
+  next.innerHTML = "&#8250;";
+  next.setAttribute("aria-label", "Next slide");
+
+  slider.append(prev, next);
+
+  const slides = [originalHero, secondSlide];
+  let current = 0;
+  let timer;
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === current);
+    });
+  }
+
+  function restartTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => showSlide(current + 1), 5000);
+  }
+
+  prev.addEventListener("click", () => {
+    showSlide(current - 1);
+    restartTimer();
+  });
+
+  next.addEventListener("click", () => {
+    showSlide(current + 1);
+    restartTimer();
+  });
+
+  restartTimer();
+});
+</script>
+
 </body>
 </html>
