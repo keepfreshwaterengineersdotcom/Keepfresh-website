@@ -1472,5 +1472,50 @@ secondSlide.innerHTML = `
 });
 </script>
 
+<style>
+/* Featured Products - Premium Card Styling */
+#products .product {
+    border-radius: 20px !important;
+    overflow: hidden;
+    border: 1px solid #e1eaf2;
+    box-shadow: 0 6px 22px rgba(0, 55, 100, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#products .product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(0, 55, 100, 0.17);
+}
+
+#products .product-visual {
+    height: 240px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#products .product-visual img {
+    max-width: 90%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+#products .product-info {
+    padding: 22px !important;
+}
+
+#products .product-info h3 {
+    color: #123b60;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#products .enquire {
+    border-radius: 30px !important;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+</style>
+
 </body>
 </html>
