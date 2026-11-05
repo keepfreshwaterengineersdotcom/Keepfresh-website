@@ -100,12 +100,28 @@ nav{display:none}
 
 .hero-features span {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 8px 12px;
-    font-size: 14px;
+    gap: 10px;
+    padding: 8px 10px;
+    font-size: 13px;
     font-weight: 600;
     line-height: 1.4;
     border-right: 1px solid rgba(255,255,255,0.35);
+}
+
+.hero-features span b {
+    width: 48px;
+    height: 48px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
 }
 
 .hero-features span:last-child {
