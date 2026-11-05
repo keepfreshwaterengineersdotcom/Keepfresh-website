@@ -911,29 +911,21 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 #keepfresh-slider .solution-slide {
-    width: 100%;
+    width: 100% !important;
+    min-height: 620px !important;
+    height: 620px !important;
     display: none;
     position: relative;
     align-items: center;
-    aspect-ratio: 16 / 9;
     background-image: url('hero-water-solutions.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
     background-color: #071b36;
 }
 
 #keepfresh-slider .solution-slide.active {
     display: flex;
-}
-}
-
-#keepfresh-slider .solution-slide.active {
-    display: flex;
-}
-
-#keepfresh-slider .solution-slide.active {
-  display: flex;
 }
 
 .solution-overlay {
