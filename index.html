@@ -774,67 +774,226 @@ Safe & Healthy Water
 
 
 <section class="section products" id="products">
-<div class="section-title">
-<h2>Featured Products</h2>
-<p>Explore the KEEPFRESH product range</p>
-</div>
-<div class="product-grid">
+  <style>
+    #products {
+      background: linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.82)),
+      url('features-products-bg.png') center/cover no-repeat;
+      padding: 65px 5%;
+      overflow: hidden;
+    }
 
-<div class="product">
-<div class="product-visual">💧</div>
-<div class="product-info">
-<h3>KEEPFRESH PANCH Series</h3>
-<p>Premium alkaline water ionizer with advanced electrolysis technology.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20PANCH%20Series%20Ionizer.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-<div class="product">
-<div class="product-visual">🚰</div>
-<div class="product-info">
-<h3>KEEPFRESH TATTVA Series</h3>
-<p>Alkaline water ionizer range designed for modern homes.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20TATTVA%20Series.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .fp-carousel {
+      position: relative;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-<div class="product">
-<div class="product-visual">✨</div>
-<div class="product-info">
-<h3>KEEPFRESH ADVAIT Series</h3>
-<p>Explore our premium alkaline water ionizer collection.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20ADVAIT%20Series.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .fp-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 12px 4px 25px;
+    }
 
-<div class="product">
-<div class="product-visual">💦</div>
-<div class="product-info">
-<h3>Domestic RO Purifiers</h3>
-<p>Modern water purification systems for everyday use.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20Domestic%20RO.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .fp-track::-webkit-scrollbar {
+      display: none;
+    }
 
-<div class="product">
-<div class="product-visual">🏭</div>
-<div class="product-info">
-<h3>Commercial RO Plants</h3>
-<p>Water treatment solutions for commercial requirements.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20Commercial%20RO%20Plants.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .fp-card {
+      flex: 0 0 calc(33.333% - 14px);
+      min-width: 0;
+      background: rgba(255,255,255,.96);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,35,90,.13);
+      scroll-snap-align: start;
+      border: 1px solid #dce8f8;
+    }
 
-<div class="product">
-<div class="product-visual">⚙️</div>
-<div class="product-info">
-<h3>Water Treatment Systems</h3>
-<p>Sand filtration, iron removal and water softening systems.</p>
-<a class="enquire" href="https://wa.me/918368940556?text=Hello%20KEEPFRESH%2C%20I%20want%20to%20enquire%20about%20Water%20Treatment%20Systems.">Enquire for Price ↗</a>
-</div>
-</div>
+    #products .fp-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 12px;
+    }
 
-</div>
+    #products .fp-card h3 {
+      color: #06458c;
+      font-size: 19px;
+      margin: 10px 0;
+    }
+
+    #products .fp-card p {
+      color: #526174;
+      font-size: 14px;
+      min-height: 40px;
+    }
+
+    #products .fp-card a {
+      display: inline-block;
+      background: #0755a5;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    #products .fp-arrow {
+      position: absolute;
+      top: 42%;
+      z-index: 2;
+      border: 0;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      background: #0755a5;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    #products .fp-prev { left: -18px; }
+    #products .fp-next { right: -18px; }
+
+    @media(max-width: 768px) {
+      #products .fp-card {
+        flex: 0 0 80%;
+      }
+      #products .fp-card img {
+        height: 190px;
+      }
+      #products .fp-prev { left: 0; }
+      #products .fp-next { right: 0; }
+    }
+  </style>
+
+  <div class="section-title">
+    <h2>Featured Products</h2>
+    <p>Explore the KEEPFRESH product range</p>
+  </div>
+
+  <div class="fp-carousel">
+    <button class="fp-arrow fp-prev" type="button" aria-label="Previous">&#8249;</button>
+    <button class="fp-arrow fp-next" type="button" aria-label="Next">&#8250;</button>
+
+    <div class="fp-track">
+      <div class="fp-card">
+        <img src="fp-alkaline-ionizer.png" alt="Alkaline Water Ionizer">
+        <h3>Alkaline Water Ionizers</h3>
+        <p>Advanced alkaline water ionization systems.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Alkaline%20Water%20Ionizer">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-domestic-ro-purifier.png" alt="Domestic RO Purifier">
+        <h3>Domestic RO Purifiers</h3>
+        <p>Water purification solutions for homes.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Domestic%20RO">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-uv-water-purifier.png" alt="UV Water Purifier">
+        <h3>UV Water Purifiers</h3>
+        <p>UV-based water purification systems.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20UV%20Purifier">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-commercial-ro-purifier.png" alt="Commercial RO Purifier">
+        <h3>Commercial RO Systems</h3>
+        <p>Water treatment solutions for commercial use.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Commercial%20RO">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-whole-home-treatment.png" alt="Whole Home Water Treatment">
+        <h3>Whole Home Treatment</h3>
+        <p>Complete water treatment for homes.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Whole%20Home%20Treatment">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-industrial-ro-plant.png" alt="Industrial RO Plant">
+        <h3>Industrial RO Plants</h3>
+        <p>Industrial-scale water purification plants.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Industrial%20RO%20Plant">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-industrial-components.png" alt="Industrial Components">
+        <h3>Industrial Components</h3>
+        <p>RO membranes, pumps, valves and accessories.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Industrial%20Components">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-water-filtration-media.png" alt="Water Filtration Media">
+        <h3>Water Filtration Media</h3>
+        <p>Activated carbon, resin, sand and filter media.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Filtration%20Media">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-water-cooler.png" alt="Water Cooler">
+        <h3>Water Coolers</h3>
+        <p>Stainless steel water cooling solutions.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20Water%20Cooler">Enquire Now</a>
+      </div>
+
+      <div class="fp-card">
+        <img src="fp-domestic-ro-spare-parts.png" alt="Domestic RO Spare Parts">
+        <h3>Domestic RO Spare Parts</h3>
+        <p>Filters, pumps, membranes and accessories.</p>
+        <a href="https://wa.me/918368940556?text=Enquiry%20for%20RO%20Spare%20Parts">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const section = document.querySelector('#products');
+      const track = section.querySelector('.fp-track');
+      const next = section.querySelector('.fp-next');
+      const prev = section.querySelector('.fp-prev');
+
+      function moveCarousel(direction) {
+        const card = track.querySelector('.fp-card');
+        const gap = 20;
+        const distance = card.getBoundingClientRect().width + gap;
+
+        if (direction === 1 &&
+            track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else if (direction === -1 && track.scrollLeft <= 5) {
+          track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: distance * direction, behavior: 'smooth' });
+        }
+      }
+
+      next.addEventListener('click', () => moveCarousel(1));
+      prev.addEventListener('click', () => moveCarousel(-1));
+
+      let timer = setInterval(() => moveCarousel(1), 4000);
+
+      track.addEventListener('mouseenter', () => clearInterval(timer));
+      track.addEventListener('mouseleave', () => {
+        clearInterval(timer);
+        timer = setInterval(() => moveCarousel(1), 4000);
+      });
+    })();
+  </script>
 </section>
 
 <section class="section about" id="about">
