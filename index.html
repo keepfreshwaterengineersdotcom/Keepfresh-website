@@ -201,8 +201,8 @@ nav{display:none}
 
 .category img {
     width: 100% !important;
-    height: 175px !important;
-    object-fit: cover !important;
+    height: 115px !important;
+    object-fit: contain !important;
     object-position: top center !important;
     display: block !important;
     border-radius: 12px !important;
@@ -425,7 +425,32 @@ nav{display:none}
         font-size: 12px !important;
     }
 }
-  
+
+/* FINAL CATEGORY IMAGE DESIGN */
+
+.categories .category img {
+    width: 100% !important;
+    height: 145px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    border-radius: 12px !important;
+    background: #eaf4ff !important;
+    margin-bottom: 12px !important;
+}
+
+/* CATEGORY CARD */
+.categories .category {
+    overflow: hidden;
+}
+
+/* MOBILE IMAGE SIZE */
+@media (max-width: 600px) {
+    .categories .category img {
+        height: 120px !important;
+    }
+}
+
 </style>
 </head>
 <body>
