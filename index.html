@@ -562,6 +562,27 @@ nav{display:none}
         0 0 16px rgba(0, 145, 255, 0.4),
         0 0 25px rgba(0, 145, 255, 0.2);
 }
+/* PREMIUM SCROLL REVEAL */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 650ms ease,
+        transform 650ms ease;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
 
 </style>
 </head>
@@ -839,6 +860,37 @@ Safe & Healthy Water
 <p>© 2026 KEEPFRESH Water Engineers. All Rights Reserved.</p>
 <p style="margin-top:8px">Pure Science. Pure Water.</p>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const elements = document.querySelectorAll(
+        "#categories .section-title, #categories .category, " +
+        "#products .section-title, #products .product, " +
+        "#about > *, #contact > *"
+    );
+
+    elements.forEach((element, index) => {
+        element.classList.add("scroll-reveal");
+
+        if (element.classList.contains("category") ||
+            element.classList.contains("product")) {
+            element.style.transitionDelay =
+                (index % 5) * 80 + "ms";
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    elements.forEach(element => observer.observe(element));
+
+});
+</script>
 </body>
 </html>
