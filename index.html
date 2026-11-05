@@ -1347,7 +1347,33 @@ setInterval(function () {
     background-position: center center !important;
     background-repeat: no-repeat !important;
 }
-  
+ /* ABOUT US FEATURE CARDS */
+.section.about .about-text > div[style*="grid-template-columns"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    margin-top: 22px !important;
+}
+
+.section.about .about-text > div[style*="grid-template-columns"] > div {
+    background: #ffffff !important;
+    padding: 18px !important;
+    border-radius: 12px !important;
+    border: 1px solid #dceaf5 !important;
+    box-shadow: 0 4px 14px rgba(0, 50, 100, 0.10) !important;
+}
+
+.section.about .about-text > div[style*="grid-template-columns"] h3 {
+    color: #064b91 !important;
+    font-size: 17px !important;
+    margin-bottom: 7px !important;
+}
+
+.section.about .about-text > div[style*="grid-template-columns"] p {
+    color: #52677c !important;
+    font-size: 14px !important;
+}
+
 </style>
 
 <script>
