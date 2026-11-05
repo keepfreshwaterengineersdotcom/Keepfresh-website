@@ -1010,16 +1010,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const secondSlide = document.createElement("section");
   secondSlide.className = "solution-slide";
-  secondSlide.innerHTML = `
-    <div class="solution-overlay">
-      <h2>Complete Water Solutions</h2>
-      <p>For Homes, Businesses &amp; Industries</p>
-      <div class="solution-actions">
-        <a href="#products">Explore Our Products</a>
-        <a href="https://wa.me/918368940556">Enquire Now</a>
-      </div>
-    </div>
-  `;
+ 
+secondSlide.innerHTML = `
+  <a href="#products" aria-label="Explore Our Products"
+     style="position:absolute;left:7%;top:76%;width:23%;height:9%;z-index:5;"></a>
+  <a href="https://wa.me/918368940556"
+     aria-label="Enquire Now"
+     style="position:absolute;left:30%;top:68%;width:18%;height:9%;z-index:5;"></a>
+`;
+
   slider.appendChild(secondSlide);
 
   const prev = document.createElement("button");
