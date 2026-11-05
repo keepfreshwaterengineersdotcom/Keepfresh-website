@@ -655,7 +655,33 @@ nav{display:none}
 .about-carousel-dot.active {
     background: #087de0;
 }
+/* PREMIUM ABOUT US CARDS */
+.section.about .about-text > div[style*="grid-template-columns"] > div {
+    min-height: 105px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
 
+.section.about .about-text > div[style*="grid-template-columns"] > div:hover {
+    transform: translateY(-5px) !important;
+    border-color: #168bd2 !important;
+    box-shadow: 0 10px 24px rgba(0, 90, 160, 0.18) !important;
+    background: #f0f8ff !important;
+}
+
+.section.about .about-text > div[style*="grid-template-columns"] h3 {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+}
+
+.section.about .about-text > div[style*="grid-template-columns"] h3:first-letter {
+    font-size: 21px;
+}
+  
 </style>
 </head>
 <body>
