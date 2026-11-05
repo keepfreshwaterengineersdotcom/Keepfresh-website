@@ -266,7 +266,41 @@ nav{display:none}
 .section-title {
     text-align: center !important;
 }
+.category-brand-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 8px;
+    color: #10265b;
+}
 
+.category-brand-name .brand-line {
+    width: 65px;
+    height: 2px;
+    background: #174b8a;
+}
+
+.category-brand-name .brand-text {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.category-brand-name .brand-text span {
+    color: #1685d4;
+    font-style: italic;
+}
+
+.category-brand-name small {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+    color: #10265b;
+}
 </style>
 </head>
 <body>
@@ -368,7 +402,15 @@ Safe & Healthy Water
 <img src="keepfresh-logo.png"
      alt="KEEPfresh Water Engineers"
      class="category-brand-logo">
-
+<div class="category-brand-name">
+    <div class="brand-line"></div>
+    <div>
+        <div class="brand-text">KEEP<span>fresh</span><sup>®</sup></div>
+        <small>Water Engineers</small>
+    </div>
+    <div class="brand-line"></div>
+</div>
+  
 <h2>Our Product Categories</h2>
 
 <p>Complete water solutions for homes and businesses</p>
