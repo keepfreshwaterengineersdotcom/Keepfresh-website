@@ -892,6 +892,49 @@ nav{display:none}
     height: 55px !important;
     flex-shrink: 0 !important;
 }
+/* Floating Contact Button Fix */
+.floating-contact {
+    position: fixed !important;
+    right: 25px !important;
+    bottom: 25px !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.floating-contact a {
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #087BC1 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.30) !important;
+}
+
+.floating-contact a.floating-whatsapp {
+    background: #25D366 !important;
+    color: #ffffff !important;
+}
+
+.floating-contact a.floating-call {
+    background: #0755AD !important;
+    color: #ffffff !important;
+}
+
+.floating-contact svg {
+    display: block !important;
+    width: 27px !important;
+    height: 27px !important;
+    stroke: #ffffff !important;
+}
+
+.floating-contact a:hover {
+    transform: scale(1.08);
+}
 
 </style>
 </head>
