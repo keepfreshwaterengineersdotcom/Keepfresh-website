@@ -2165,5 +2165,212 @@ secondSlide.innerHTML = `
   </div>
 </div>
 
+<!-- KEEPfresh IONIZER DEMO BOOKING -->
+
+<style>
+#kf-demo-tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999990;
+  background: #0755ad;
+  color: white;
+  padding: 16px 10px;
+  border-radius: 10px 0 0 10px;
+  writing-mode: vertical-rl;
+  transform-origin: center;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
+  border: none;
+}
+
+#kf-demo-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  z-index: 999999;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+#kf-demo-box {
+  background: white;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 35px rgba(0,0,0,.3);
+}
+
+#kf-demo-box h2 {
+  color: #064b91;
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+#kf-demo-box p {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+#kf-demo-box label {
+  display: block;
+  color: #173b60;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 12px 0 5px;
+}
+
+#kf-demo-box input,
+#kf-demo-box select,
+#kf-demo-box textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d4dfeb;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f9fcff;
+  color: #18344f;
+}
+
+#kf-demo-box textarea {
+  resize: vertical;
+  min-height: 65px;
+}
+
+#kf-demo-submit {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: #0755ad;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#kf-demo-close {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  border: none;
+  background: #edf4fb;
+  color: #064b91;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media(max-width:600px) {
+  #kf-demo-tab {
+    font-size: 11px;
+    padding: 13px 8px;
+  }
+  #kf-demo-box {
+    padding: 20px;
+  }
+}
+</style>
+
+<button id="kf-demo-tab" type="button"
+ onclick="document.getElementById('kf-demo-overlay').style.display='flex'">
+ BOOK YOUR IONIZER DEMO
+</button>
+
+<div id="kf-demo-overlay"
+ onclick="if(event.target===this)this.style.display='none'">
+
+ <div id="kf-demo-box">
+
+  <button id="kf-demo-close" type="button"
+   onclick="document.getElementById('kf-demo-overlay').style.display='none'">
+   ×
+  </button>
+
+  <h2>Book Your Ionizer Demo</h2>
+  <p>Fill in your details and our team will contact you.</p>
+
+  <form onsubmit="kfSendDemo(event)">
+
+   <label>Customer Name *</label>
+   <input type="text" id="kf-demo-name"
+    placeholder="Enter your full name" required>
+
+   <label>Mobile Number *</label>
+   <input type="tel" id="kf-demo-mobile"
+    placeholder="Enter 10-digit mobile number"
+    pattern="[6-9][0-9]{9}" maxlength="10" required>
+
+   <label>City / Location *</label>
+   <input type="text" id="kf-demo-city"
+    placeholder="Enter your city and area" required>
+
+   <label>Demo Required For *</label>
+   <select id="kf-demo-type" required>
+    <option value="">Select an option</option>
+    <option>Home</option>
+    <option>Office</option>
+    <option>Business</option>
+   </select>
+
+   <label>Preferred Demo Date *</label>
+   <input type="date" id="kf-demo-date" required>
+
+   <label>Additional Message (Optional)</label>
+   <textarea id="kf-demo-message"
+    placeholder="Any specific requirements?"></textarea>
+
+   <button id="kf-demo-submit" type="submit">
+    Submit Demo Request on WhatsApp
+   </button>
+
+  </form>
+ </div>
+</div>
+
+<script>
+function kfSendDemo(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('kf-demo-name').value.trim();
+  const mobile = document.getElementById('kf-demo-mobile').value.trim();
+  const city = document.getElementById('kf-demo-city').value.trim();
+  const type = document.getElementById('kf-demo-type').value;
+  const date = document.getElementById('kf-demo-date').value;
+  const message = document.getElementById('kf-demo-message').value.trim();
+
+  const text =
+    "KEEPfresh Ionizer Demo Booking Enquiry\n\n" +
+    "Name: " + name + "\n" +
+    "Mobile: " + mobile + "\n" +
+    "City / Location: " + city + "\n" +
+    "Demo Required For: " + type + "\n" +
+    "Preferred Date: " + date + "\n" +
+    "Message: " + (message || "Not provided");
+
+  const url = "https://wa.me/918368940556?text=" +
+    encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+</script>
+
+<!-- END KEEPfresh DEMO BOOKING -->
+
 </body>
 </html>
