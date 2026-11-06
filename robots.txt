@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keepfreshwaterengineersdotcom.github.io/Keepfresh-website/sitemap.xml
